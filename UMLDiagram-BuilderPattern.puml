@@ -1,0 +1,43 @@
+@startuml
+class BurgerResuturant {
+- BurgerBuilder burgerBuilder
++ void setBuilder(BurgerBuilder)
++ Burger buildBurger()
+}
+class Burger {
+- String bun
+- String meat
+- String salad
+- String cheese
+- String sauce
++ void setBun(String)
++ void setMeat(String)
++ void setSalad(String)
++ void setCheese(String)
++ void setSauce(String)
++ void print()
+}
+abstract class BurgerBuilder {
+~ Burger burger
+~ {abstract}void buildBun()
+~ {abstract}void buildMeat()
+~ {abstract}void buildSalad()
+~ {abstract}void buildCheese()
+~ {abstract}void buildSauce()
+~ Burger build()
+}
+class Main {
++ {static} void main(String[])
+- {static} void buildBurger(BurgerResuturant)
+}
+class CheeseBurgerBuilder {
++ void buildBun()
++ void buildMeat()
++ void buildSalad()
++ void buildCheese()
++ void buildSauce()
+}
+
+
+BurgerBuilder <|-- CheeseBurgerBuilder
+@enduml
